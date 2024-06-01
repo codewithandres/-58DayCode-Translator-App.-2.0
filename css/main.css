@@ -1,0 +1,333 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --primary-color: hsl(224, 100%, 60%);
+    --light-bg-color: hsl(0, 0%, 100%);
+    --bg-color: hsl(0, 0%, 96%);
+    --text-color: hsl(240, 13%, 8%);
+    --light-text-color: hsl(0, 0%, 80%);
+    --primary-text-color: hsl(0, 0%, 100%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
+body.dark {
+    --light-bg-color: hsl(252, 8%, 12%);
+    --bg-color: hsl(0, 0%, 96%);
+    --text-color: hsl(0, 0%, 100%);
+    --light-text-color: #58575c;
+}
+
+.container {
+    position: relative;
+    width: 1200px;
+    padding: 0 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.container .card {
+    flex: 1;
+    padding: 30px;
+    border-radius: 20px;
+    background-color: var(--light-bg-color);
+}
+
+.card .from,
+.card .to {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.card .heading {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--light-text-color);
+    white-space: nowrap;
+}
+
+.dropdowm-container {
+    position: relative;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.dropdowm-container .dropdowm-toggle {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    border-radius: 30px;
+    background-color: var(--bg-color);
+    cursor: pointer;
+    transition: all 300ms ease-out;
+}
+
+.dropdowm-container .dropdowm-toggle span {
+    flex: 1;
+    margin-left: 10px;
+}
+
+.dropdowm-container .dropdowm-toggle ion-icon {
+    font-size: 20px;
+    transition: transform 300ms ease;
+}
+
+.dropdowm-container.active .dropdowm-toggle {
+    border-radius: 20px 20px 0 0;
+}
+
+.dropdowm-container .dropdowm-menu {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    overflow: auto;
+    display: none;
+    padding: 20px;
+    z-index: 1;
+    list-style: none;
+    flex-direction: column;
+    background-color: var(--bg-color);
+    transition: all 300ms ease;
+    border-radius: 0 0 20px 20px;
+}
+
+.dropdowm-container .dropdowm-menu::-webkit-scrollbar {
+    display: none;
+}
+
+.dropdowm-container.active .dropdowm-menu {
+    display: flex;
+}
+
+.dropdowm-container.active .dropdowm-menu li {
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-bottom: 5px;
+    border-bottom: 1px solid var(--light-bg-color);
+    transition: all 300ms ease;
+}
+
+.dropdowm-container.active .dropdowm-menu li.active {
+    color: var(--primary-text-color);
+    background-color: var(--primary-color);
+}
+
+.dropdowm-container.active .dropdowm-menu li:not(.active):hover {
+    background-color: var(--primary-color);
+}
+
+.container .text-area {
+    position: relative;
+}
+
+.container textarea {
+    width: 100%;
+    padding: 20px;
+    margin: 10px 0;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 18px;
+    min-height: 200px;
+}
+
+.container .text-area .chars {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 10px;
+    font-size: 0.8rem;
+    color: var(--light-text-color);
+}
+
+.card-bottom {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 20px;
+    border-top: 2px solid var(--bg-color);
+}
+
+.card-bottom p {
+    margin-bottom: 20px;
+
+}
+
+.card-bottom label {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 0 20px;
+    cursor: pointer;
+    border-radius: 20px;
+    background-color: var(--bg-color);
+}
+
+.card-bottom label:hover {
+    background-color: var(--primary-color);
+    color: var(--primary-text-color);
+}
+
+.card-bottom span {
+    font-size: 12px;
+    pointer-events: none;
+}
+
+.card-bottom ion-icon {
+    font-size: 20px;
+}
+
+.card-bottom button {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 0 20px;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    color: var(--text-color);
+    cursor: pointer;
+    background-color: var(--bg-color);
+}
+
+.card-bottom button:hover {
+    background-color: var(--primary-color);
+    color: var(--primary-text-color);
+}
+
+.container .center {
+    position: relative;
+}
+
+.swap-position {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 1px solid var(--bg-color);
+    transition: all 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    color: var(--primary-text-color);
+    background-color: var(--primary-color);
+}
+
+.swap-position ion-icon {
+    font-size: 25px;
+}
+
+.swap-position:hover {
+    transform: translateX(-50%) scale(1.1);
+}
+
+.mode {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1;
+}
+
+.toggle {
+    position: relative;
+    cursor: pointer;
+}
+
+.toggle-trak {
+    width: 24px;
+    height: 50px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 3px 0;
+    border: 1px solid var(--light-text-color);
+    background-color: var(--light-bg-color);
+    transition: all 300ms ease;
+}
+
+.toggle-checkbox {
+    display: none;
+}
+
+.toggle-thumb {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    transition: all 300ms ease;
+}
+
+.toggle input:checked~.toggle-thumb {
+    transform: translateY(25px);
+}
+
+@media (max-width: 800px) {
+    .container {
+        width: 100%;
+        margin-top: 20px;
+        flex-direction: column;
+    }
+
+    .container .card {
+        width: 100%;
+    }
+
+    .container .card .from {
+        margin-right: 0;
+    }
+
+    .container .card .to {
+        margin-left: 0;
+    }
+
+    .container .card .from,
+    .container .card .to {
+        flex-direction: column;
+    }
+
+    .swap-position {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .swap-position:hover {
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    .swap-position ion-icon {
+        transform: rotate(90deg);
+    }
+}
