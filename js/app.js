@@ -58,6 +58,7 @@ const inputTextElemet = document.querySelector('#input-text');
 const ouputTextElement = document.querySelector('#output-text');
 const inputLanguage = inputLeneguageDropdowm.querySelector('.selected');
 const outputLanguage = ouputLeneguageDropdowm.querySelector('.selected');
+const swapBtn = document.querySelector('.swap-position');
 
 const translate = () => {
     const inputText = inputTextElemet.value;
@@ -80,5 +81,21 @@ inputTextElemet.addEventListener('input', event => {
     if (inputTextElemet.value.length > 500) {
         inputTextElemet.value = inputTextElemet.value.slice(0, 500);
     }
+    translate();
+});
+
+swapBtn.addEventListener('click', event => {
+    const temp = inputLanguage.innerHTML;
+    inputLanguage.innerHTML = outputLanguage.innerHTML;
+    outputLanguage.innerHTML = temp;
+
+    const tempValue = inputLanguage.dataset.value;
+    inputLanguage.dataset.value = outputLanguage.dataset.value;
+    outputLanguage.dataset.value = tempValue;
+
+    const tempInputText = inputTextElemet.value;
+    inputTextElemet.value = ouputTextElement.value;
+    ouputTextElement.value = tempInputText;
+
     translate();
 });
