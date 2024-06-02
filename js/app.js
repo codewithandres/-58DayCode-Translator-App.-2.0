@@ -60,7 +60,7 @@ const inputLanguage = inputLeneguageDropdowm.querySelector('.selected');
 const outputLanguage = ouputLeneguageDropdowm.querySelector('.selected');
 const swapBtn = document.querySelector('.swap-position');
 
-const translate = () => {
+const translate = async () => {
     const inputText = inputTextElemet.value;
     const inputLaguage = inputLeneguageDropdowm.querySelector('.selected').dataset.value;
     const outputLanguage = ouputLeneguageDropdowm.querySelector('.selected').dataset.value;
@@ -99,3 +99,27 @@ swapBtn.addEventListener('click', event => {
 
     translate();
 });
+
+const uploadDocument = document.querySelector('#upload-document'),
+    uploadTitle = document.querySelector('#upload-title');
+
+uploadDocument.addEventListener('change', event => {
+    const file = event.target.files[0];
+
+    if (file.type === 'application/pdf' || file.type === 'application/msword' || file.type === 'text/plain') {
+        uploadTitle.innerHTML = file.name;
+
+        const reader = new FileReader();
+        reader.readAsText(file);
+
+        reader.onload = event => {
+            inputTextElemet.value = event.target.result;
+            translate();
+        };
+    } else {
+        alert('Please selected a valid file');
+    };
+});
+
+
+const downloadDocument = document.querySelector('#dowmload-document')
