@@ -1,6 +1,6 @@
 import { languages } from "./lenguages.js";
 
-const dropdowms = document.querySelectorAll('.ropdowm-container'),
+const dropdowms = document.querySelectorAll('.dropdowm-container'),
     inputLeneguageDropdowm = document.querySelector('#input-language'),
     ouputLeneguageDropdowm = document.querySelector('#output-language');
 
@@ -23,3 +23,28 @@ populateDropdowm(inputLeneguageDropdowm, languages);
 populateDropdowm(ouputLeneguageDropdowm, languages);
 
 
+dropdowms.forEach(dropdowm => {
+
+    dropdowm.addEventListener('click', event => {
+        dropdowm.classList.toggle('active');
+    });
+
+    dropdowm.querySelectorAll('.option').forEach(item => {
+        item.addEventListener('click', event => {
+            //   remove active from other options
+            dropdowm.querySelectorAll('.option').forEach(item => {
+                item.classList.remove('active');
+            });
+            // add active to cliked
+            item.classList.add('active');
+        });
+    });
+});
+
+document.addEventListener('click', event => {
+    dropdowms.forEach(dropdowm => {
+
+        if (!dropdowm.contains(event.target))
+            dropdowm.classList.remove('active');
+    });
+});
