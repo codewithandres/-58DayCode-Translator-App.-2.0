@@ -37,6 +37,10 @@ dropdowms.forEach(dropdowm => {
             });
             // add active to cliked
             item.classList.add('active');
+            const selected = dropdowm.querySelector('.selected');
+            selected.innerHTML = item.innerHTML;
+            selected.dataset.value = item.dataset.value;
+            translate();
         });
     });
 });
@@ -47,4 +51,33 @@ document.addEventListener('click', event => {
         if (!dropdowm.contains(event.target))
             dropdowm.classList.remove('active');
     });
+});
+
+// fuction to translate text
+const inputTextElemet = document.querySelector('#input-text');
+const ouputTextElement = document.querySelector('#output-text');
+const inputLanguage = inputLeneguageDropdowm.querySelector('.selected');
+const outputLanguage = ouputLeneguageDropdowm.querySelector('.selected');
+
+const translate = () => {
+    const inputText = inputTextElemet.value;
+    const inputLaguage = inputLeneguageDropdowm.querySelector('.selected').dataset.value;
+    const outputLanguage = ouputLeneguageDropdowm.querySelector('.selected').dataset.value;
+    //api Url 
+    const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=${inputLaguage}&tl=${outputLanguage}&dt=t&q=${encodeURI(
+        inputText
+    )}`;
+
+    fetch(url)
+        .then(response => response.json())
+        .then(json => {
+            ouputTextElement.value = json[0].map(item => item[0]).join('');
+        });
+};
+
+inputTextElemet.addEventListener('input', event => {
+    if (inputTextElemet.value.length > 500) {
+        inputTextElemet.value = inputTextElemet.value.slice(0, 500);
+    }
+    translate();
 });
