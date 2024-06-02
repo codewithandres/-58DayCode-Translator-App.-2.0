@@ -121,5 +121,32 @@ uploadDocument.addEventListener('change', event => {
     };
 });
 
+const downloadDocument = document.querySelector('#dowmload-document');
 
-const downloadDocument = document.querySelector('#dowmload-document')
+downloadDocument.addEventListener('click', event => {
+    const outputText = ouputTextElement.value;
+    const outputLenguage = ouputLeneguageDropdowm.querySelector('.selected').innerHTML;
+
+    if (outputText) {
+        const blob = new Blob([outputText], { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+
+        a.download = `translated-to-${outputLenguage}.txt`;
+        a.href = url;
+        a.click();
+    };
+});
+
+const inputChars = document.querySelector('#input-chart');
+
+inputTextElemet.addEventListener('input', event => {
+    inputChars.innerHTML = event.target.value.length;
+});
+
+const darkModeBtn = document.querySelector('.dark-mode-btn');
+
+darkModeBtn.addEventListener('change', () => {
+    console.log('click');
+    document.body.classList.toggle('dark');
+});

@@ -2,8 +2,8 @@
 
 :root {
     --primary-color: hsl(224, 100%, 60%);
-    --light-bg-color: hsl(0, 0%, 100%);
     --bg-color: hsl(0, 0%, 96%);
+    --light-bg-color: hsl(0, 0%, 100%);
     --text-color: hsl(240, 13%, 8%);
     --light-text-color: hsl(0, 0%, 80%);
     --primary-text-color: hsl(0, 0%, 100%);
@@ -26,9 +26,9 @@ body {
 }
 
 body.dark {
-    --light-bg-color: hsl(252, 8%, 12%);
-    --bg-color: hsl(0, 0%, 96%);
-    --text-color: hsl(0, 0%, 100%);
+    --bg-color: #111116;
+    --light-bg-color: #1c1b20;
+    --text-color: #fff;
     --light-text-color: #58575c;
 }
 
