@@ -72,7 +72,8 @@ const translate = () => {
         .then(response => response.json())
         .then(json => {
             ouputTextElement.value = json[0].map(item => item[0]).join('');
-        });
+        })
+        .catch(error => console.log(error));
 };
 
 inputTextElemet.addEventListener('input', event => {
