@@ -2,48 +2,56 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Translator App | Andres developer</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <!-- custom css -->
-    <link rel="stylesheet" href="css/main.css">
-    <!-- ionic Icon -->
-    <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons/ionicons.js"></script>
-    <!-- custom js -->
+    <link rel="stylesheet" href="css/main.css" />
+    <!-- custom JS -->
     <script src="js/app.js" defer type="module"></script>
+
+    <title>Language Translater | Andres Developer</title>
 </head>
 
 <body>
+    <div class="mode">
+        <label class="toggle" for="dark-mode-btn">
+            <div class="toggle-track">
+                <input type="checkbox" class="toggle-checkbox" id="dark-mode-btn" />
+                <span class="toggle-thumb"></span>
+                <ion-icon name="sunny-outline"></ion-icon>
+                <ion-icon name="moon-outline"></ion-icon>
+            </div>
+        </label>
+    </div>
     <div class="container">
         <div class="card input-wrapper">
             <div class="from">
-                <span class="heading">From : </span>
-                <!-- custom select -->
-                <div class="dropdowm-container " id="input-language">
-                    <div class="dropdowm-toggle">
+                <span class="heading">From :</span>
+                <div class="dropdown-container" id="input-language">
+                    <div class="dropdown-toggle">
                         <ion-icon name="globe-outline"></ion-icon>
-                        <span class="selected" data-value="auto">Auto Detected</span>
+                        <span class="selected" data-value="auto">Auto Detect</span>
                         <ion-icon name="chevron-down-outline"></ion-icon>
                     </div>
-                    <ul class="dropdowm-menu">
-                        <li class="option active">Option 1</li>
-                        <li class="option ">Option 2</li>
+                    <ul class="dropdown-menu">
+                        <li class="option active">DropDown Menu Item 1</li>
+                        <li class="option">DropDown Menu Item 2</li>
                     </ul>
                 </div>
             </div>
             <div class="text-area">
-                <textarea id="input-text" placeholder="Enter your text"></textarea>
-                <div class="chars">
-                    <span id="input-chart">0 </span> / 500
-                </div>
+                <textarea id="input-text" cols="30" rows="10" placeholder="Enter your text here"></textarea>
+                <div class="chars"><span id="input-chars">0</span> / 5000</div>
             </div>
             <div class="card-bottom">
-                <p>Or Choose your document</p>
+                <p>Or choose your document!</p>
                 <label for="upload-document">
-                    <span id="upload-title">Chooso file</span>
+                    <span id="upload-title">Choose File</span>
                     <ion-icon name="cloud-upload-outline"></ion-icon>
-                    <input type="file" id="upload-document" hidden>
+                    <input type="file" id="upload-document" hidden />
                 </label>
             </div>
         </div>
@@ -54,48 +62,33 @@
             </div>
         </div>
 
-        <!-- output-wrapper -->
         <div class="card output-wrapper">
-
             <div class="to">
-                <span class="heading">To : </span>
-                <!-- custom select -->
-                <div class="dropdowm-container" id="output-language">
-                    <div class="dropdowm-toggle">
+                <span class="heading">To :</span>
+                <div class="dropdown-container" id="output-language">
+                    <div class="dropdown-toggle">
                         <ion-icon name="globe-outline"></ion-icon>
-                        <span class="selected" data-value="en">English</span>
+                        <span class="selected" data-value="en">Englsih</span>
                         <ion-icon name="chevron-down-outline"></ion-icon>
                     </div>
-                    <ul class="dropdowm-menu">
-
+                    <ul class="dropdown-menu">
+                        <li class="option active">DropDown Menu Item 1</li>
+                        <li class="option">DropDown Menu Item 2</li>
                     </ul>
                 </div>
             </div>
-            <div class="text-area">
-                <textarea id="output-text" placeholder="Traslated text will appear here..."></textarea>
-            </div>
+            <textarea id="output-text" cols="30" rows="10" placeholder="Translated text will appear here"
+                disabled></textarea>
             <div class="card-bottom">
-                <p>Or download document</p>
-                <button id="dowmload-document">
-                    <span>Dowmload</span>
+                <p>Download as a document!</p>
+                <button id="download-btn">
+                    <span>Download</span>
                     <ion-icon name="cloud-download-outline"></ion-icon>
                 </button>
             </div>
         </div>
-
     </div>
 
-
-    <div class="mode">
-        <label for="dark-mode-btn" class="toggle dark-mode-btn">
-            <div class="toggle-trak">
-                <input type="checkbox" class="toggle-checkbox" id="dark-mode-btn">
-                <span class="toggle-thumb"></span>
-                <ion-icon name="sunny-outline" class="sunny"></ion-icon>
-                <ion-icon name="moon-outline" class="moon"></ion-icon>
-            </div>
-        </label>
-    </div>
 </body>
 
 </html>
